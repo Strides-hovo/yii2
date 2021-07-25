@@ -1,0 +1,17 @@
+AddDefaultCharset UTF-8
+
+Options -Indexes
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} ^/(admin)
+RewriteRule ^admin(\/?.*)$ backend/web/$1 [L]
+
+#RewriteCond %{REQUEST_URI} ^/strides.website/(assets|css)
+RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
+RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
+RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
+RewriteRule ^images/(.*)$ frontend/web/images/$1 [L]
+
+RewriteCond %{REQUEST_URI} ^/
+RewriteRule ^(\/?.*)$ frontend/web/$1 [L]
